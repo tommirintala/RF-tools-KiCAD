@@ -294,7 +294,8 @@ def get_contiguous_tracks(pcb,trks,pad):
     
     res_g=[]
     wxLogDebug('start '+str((start_point,start_point)),debug)
-    wxLogDebug('start '+str(s),debug)
+    # 's' is not defined, since we're not inside the loop anymore
+    #wxLogDebug('start '+str(last_s),debug)
     
     #for g,i in enumerate(groups):
     i=0
