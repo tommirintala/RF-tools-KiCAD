@@ -98,7 +98,17 @@ def wxLogDebug(msg,show):
     """printing messages only if show is omitted or True"""
     if show:
         wx.LogMessage(msg)
-# 
+#
+def comma2dot(value):
+    retval = value.replace(',', '.')
+    try:
+        rr = float(retval)
+        return retval
+    except:
+        return '0'
+    return '0'
+    
+
 def CalcLinLenght(self): # , dist,len_field):
     import pcbnew
     import math
@@ -110,7 +120,7 @@ def CalcLinLenght(self): # , dist,len_field):
     config.read(local_config_file)
     orig_segments=config.get('params','segments')
     pcb = pcbnew.GetBoard()
-    distI = FromUnits(float(self.m_distanceMM.Value))
+    distI = FromUnits(float(comma2dot(self.m_distanceMM.Value)))
     tracks = []
     #print ("TRACKS WHICH MATCH CRITERIA:")
     if  hasattr(pcbnew,'TRACK'):
